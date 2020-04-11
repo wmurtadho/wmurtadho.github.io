@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f2f3f7;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  .container {
+    width: 100vw;
+    height: 100vh;
+  }
+  .neu-line {
+    position: fixed;
+    display: inherit;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: black;
+    -webkit-box-shadow: -2px -2px 8px white,
+      -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+    background-attachment: text;
+    background-image: url(https://i.giphy.com/media/l4JySutM0h82AcE12/giphy.webp);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    mix-blend-mode: saturation;
+  }
+  
+  @keyframes padSize {
+    0% {
+      padding: 50px;
+    }
+    33% {
+      transform: rotate(45deg);
+      filter: invert(0);
+    }
+    50% {
+      padding: 30px;
+      filter: invert(1);
+    }
+    66% {
+      transform: rotate(-45deg);
+      filter: invert(0);
+    }
+    100% {
+      padding: 10px;
+    }
+  }
+  
+  a:hover {
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+      inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+      inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  a:hover span {
+    display: inline-block;
+    transform: scale(0.98);
+  }
+  .neu-line:nth-child(even) {
+    mix-blend-mode: normal;
+  
+    background-attachment: fixed;
+    opacity: 1;
+  
+    animation: padSize 15s alternate-reverse infinite;
+    animation-delay: 5s;
+  }
+  .neu-line:nth-child(odd) {
+    mix-blend-mode: normal;
+  
+    background-attachment: fixed;
+    opacity: 1;
+    animation: padSize 15s alternate-reverse infinite;
+    animation-delay: 5s;
+  }
+  .neu-line:nth-child(even) {
+    $left: 0;
+    @for $i from 1 through 50 {
+      &:nth-child(#{$i}) {
+        height: 100vh;
+        left: #{$left}px;
+        $left: $left + 50;
+      }
+    }
+  }
+  .neu-line:nth-child(odd) {
+    $top: 0;
+    @for $i from 1 through 50 {
+      &:nth-child(#{$i}) {
+        width: 100%;
+        top: #{$top}px;
+        $top: $top + 50;
+      }
+    }
+  }
+  //   $colors: blue, red;
+  //   $repeat: 20;
+  
+  //   @for $i from 1 through $repeat {
+  //     .neu-line:nth-child(#{length($colors)}n+#{$i}) {
+  //         background: lighten(nth($colors, random(length($colors))), 20%);
+  //     }
+  // }
+  
